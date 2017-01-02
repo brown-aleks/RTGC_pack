@@ -1,0 +1,10 @@
+function run()
+{
+  sys.addpack("rtcg_pack","RTCG_pack","Исходники компонентов на языке RTCG","hws");
+
+  sys.addproject("rtcg_pack","EntryPoint","элемент RTCG","Исходники компонентов на языке RTCG","hws","make_rtcg_pack.dll");
+
+  sys.addcompiler("rtcgCopy","\"%fname%\" \"%oname%\"","\compiler\\copyer.exe","rtcg");
+
+  sys.setcompiler("rtcg_pack","rtcgCopy");
+}

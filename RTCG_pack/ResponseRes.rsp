@@ -1,0 +1,18 @@
+# Creates a strongly typed resource class as a public class.
+# This option is ignored if the /str: option is not used. 
+# /publicClass
+
+# Specifies that types are to be loaded from assembly. If you specify this option, a .resx file with a previous version of a type will use the type in assembly. 
+# /r:assembly 
+
+# Creates a strongly typed resource class file in the programming language (cs or C# for C#, vb or visualbasic for Visual Basic) specified in the language option. You can use the namespace option to specify the project's default namespace, the classname option to specify the name of the generated class, and the filename option to specify the name of the class file. 
+# /str:language[,namespace[,classname[,filename]]]
+
+# Specifies that the input file's current directory is to be used for resolving relative file paths.
+/useSourcePath
+
+# Allows you to specify multiple .resx or text files to convert to multiple .resources files in a single bulk operation. If you do not specify this option, you can specify only one input file argument. 
+# This option cannot be used with the /str: option. 
+# /compile
+# file1.resx,file1.resources
+# file2.resx,file2.resources

@@ -1,0 +1,4 @@
+func doPrint
+  print(code(Lines))
+  event(onPrint)
+end

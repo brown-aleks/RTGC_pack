@@ -1,0 +1,138 @@
+# This option adds a module that was created with the target:module switch to the current compilation
+# /addmodule:file[;file2]
+
+# The /appconfig compiler option enables a C# application to specify the location of an assembly's application configuration (app.config) file to the common language runtime (CLR) at assembly binding time
+# /appconfig:file
+
+# The /baseaddress option lets you specify the preferred base address at which to load a DLL
+# /baseaddress:address
+
+# Specifies that debug information should be placed in a file for later analysis
+# /bugreport:file
+
+# The /checked option specifies whether an integer arithmetic statement that results in a value that is outside the range of the data type, and that is not in the scope of a checked or unchecked keyword, causes a run-time exception
+# /checked[ + | - ]
+
+# This option specifies which codepage to use during compilation if the required page is not the current default codepage for the system
+# /codepage:id
+
+# The /debug option causes the compiler to generate debugging information and place it in the output file or files 
+# /debug:{ full | pdbonly }
+# /debug[ + | - ] 
+
+# The /define option defines name as a symbol in all source code files your program
+# /define:name[;name2]
+
+# This option causes the compiler to reserve space in the output file so that a digital signature can be added later
+# /delaysign[ + | - ]
+
+# The /doc option allows you to place documentation comments in an XML file
+# /doc:file
+
+# This option provides a convenient way to report a C# internal compiler error to Microsoft
+# /errorreport:{ none | prompt | queue | send }
+
+# The /filealign option lets you specify the size of sections in your output file
+# /filealign:number
+
+# The /fullpaths option causes the compiler to specify the full path to the file when listing compilation errors and warnings
+# /fullpaths
+
+# This option sends a listing of compiler options, and a brief description of each option, to stdout
+# /help
+# /?
+
+# Specifies the name of the cryptographic key container
+# /keycontainer:string
+
+# Specifies the filename containing the cryptographic key
+# /keyfile:file
+
+# Causes the compiler to accept only syntax that is included in the chosen C# language specification
+# values are valid: default,ISO-1,ISO-2,3
+# /langversion:option
+
+# The /lib option specifies the location of assemblies referenced by means of the /reference (C# Compiler Options) option
+# /lib:dir1[,dir2]
+# Causes the compiler to make COM type information in the specified assemblies available to the project that you are currently compiling
+
+# /link:fileList
+# /l:fileList
+
+# Creates a link to a .NET Framework resource in the output file. The resource file is not added to the output file. This differs from the /resource option which does embed a resource file in the output file
+# /linkresource:filename[,identifier[,accessibility-modifier]]
+
+# This option specifies the class that contains the entry point to the program, if more than one class contains a Main method. 
+# /main:class
+
+# Specifies an assembly whose non-public types a .netmodule can access
+# /moduleassemblyname:assembly_name
+
+# The /noconfig option tells the compiler not to compile with the csc.rsp file, which is located in and loaded from the same directory as the csc.exe file. 
+# /noconfig
+
+# The /nologo option suppresses display of the sign-on banner when the compiler starts up and display of informational messages during compiling. 
+# /nologo
+
+# Use the /nowin32manifest option to instruct the compiler not to embed any application manifest into the executable file. 
+# /nowin32manifest
+
+# /nostdlib prevents the import of mscorlib.dll, which defines the entire System namespace. 
+# /nostdlib[ + | - ]
+
+# The /nowarn option lets you suppress the compiler from displaying one or more warnings. Separate multiple warning numbers with a comma.
+# /nowarn:number1[,number2,...]
+
+# The /optimize option enables or disables optimizations performed by the compiler to make your output file smaller, faster, and more efficient. 
+# /optimize[ + | - ]
+
+# The /out option specifies the name of the output file.
+# /out:filename
+
+# The /pdb compiler option specifies the name and location of the debug symbols file.
+# /pdb:filename
+
+# Specifies which version of the common language runtime (CLR) can run the assembly
+# /platform:x86
+
+# The /recurse option enables you to compile source code files in all child directories of either the specified directory (dir) or of the project directory
+# /recurse:[dir\]file
+
+# The /reference option causes the compiler to import public type information in the specified file into the current project, thus enabling you to reference metadata from the specified assembly files
+# /reference:[alias=]filename
+# /reference:filename
+
+# Embeds the specified resource into the output file.
+# /resource:filename[,identifier[,accessibility-modifier]]
+
+# The /target compiler option can be specified in one of four forms: 
+# to create a console program
+# /target:exe
+# to create a code library
+# /target:library
+# to create a module
+# /target:module
+# to create a Windows program
+#/target:winexe
+
+# The /unsafe compiler option allows code that uses the unsafe keyword to compile
+/unsafe
+
+# The /utf8output option displays compiler output using UTF-8 encoding. 
+# /utf8output
+
+# The /warn option specifies the warning level for the compiler to display. 
+# The warning level you want displayed for the compilation: 0-4 (4 the default)
+# /warn:option
+
+# The /warnaserror+ option treats all warnings as errors 
+# /warnaserror[ + | - ][:warning-list]
+
+# The /win32icon option inserts an .ico file in the output file, which gives the output file the desired appearance in the Windows Explorer
+# /win32icon:filename
+
+# Use the /win32manifest option to specify a user-defined Win32 application manifest file to be embedded into a project's portable executable (PE) file.
+# /win32manifest: filename
+
+# The /win32res option inserts a Win32 resource in the output file. 
+# /win32res:filename

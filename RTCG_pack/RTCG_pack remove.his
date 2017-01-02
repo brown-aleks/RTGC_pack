@@ -1,0 +1,4 @@
+function run()
+{
+  sys.delpack("rtcg_pack");
+}
