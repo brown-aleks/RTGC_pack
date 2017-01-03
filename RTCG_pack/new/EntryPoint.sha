@@ -1,4 +1,4 @@
-Make(rtgc)
+Make(RTCG_pack)
 Add(EntryPoint,2953706,21,105)
 {
 }
