@@ -1,0 +1,14 @@
+func Init()
+  var(N,Data)
+  if(Name = "")
+    N="function_"+_id_
+  else
+    N=Name
+  end
+end
+
+func doReg(_data)
+  blk.println('block.reg(',d('Name'),')')
+  event('onReg')
+end
+

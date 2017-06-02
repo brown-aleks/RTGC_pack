@@ -1,0 +1,5 @@
+func doReg(_data)
+  blk.println('block.reg(',d('Name'),')')
+  event('onReg')
+end
+

@@ -1,0 +1,9 @@
+UNIT
+	FUNC(init)
+		IF
+			==
+				CALL
+					PROC
+					STRING(Name)
+				VAR
+			BLOCK

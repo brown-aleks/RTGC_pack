@@ -1,0 +1,3 @@
+func Init()
+  trace(isnull(Name) ,Name ? 1 : 0)
+end

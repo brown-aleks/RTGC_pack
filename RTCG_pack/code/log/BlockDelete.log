@@ -1,0 +1,11 @@
+UNIT
+	FUNC(dodelete)
+		CALL
+			DOT
+				VAR
+				STRING(println)
+			STRING(block.delete()
+			CALL
+				PROC
+				STRING(Name)
+			STRING())

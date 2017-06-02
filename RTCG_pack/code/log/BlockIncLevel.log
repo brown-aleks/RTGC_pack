@@ -1,0 +1,10 @@
+UNIT
+	FUNC(doinclevel)
+		CALL
+			DOT
+				VAR
+				STRING(inc)
+		CALL
+			PROC
+			VAR
+	FUNC(curlevel)

@@ -1,0 +1,10 @@
+func doDecLevel(_data)
+  blk.println('.dec()')
+  trace(blk.name())
+  event('onDecLevel')
+end
+
+//func CurLevel()
+//  return(blk.getlvl())
+//end
+

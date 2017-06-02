@@ -1,0 +1,10 @@
+func doIncLevel(_data)
+  blk.println('.inc()')
+  trace(blk.name())
+  event('onIncLevel')
+end
+
+//func CurLevel()
+//  return(blk.getlvl())
+//end
+

@@ -1,0 +1,6 @@
+func doDelete(_data)
+  blk.println('block.delete(',d('Name'),')')
+  trace(this.id)
+  event('onDelete')
+end
+
