@@ -1,3 +1,10 @@
 func Init()
+//  fvar(Name_tmp)
+//  Name_tmp = d('Name')
   trace(isnull(Name) ,Name ? 1 : 0)
+//  if(isnull(Name)) 
+//    Name_tmp='function_'+this.id
+//  else
+//    Name_tmp = d('Name')
+//  end
 end
