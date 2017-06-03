@@ -6,9 +6,10 @@ func doWork(_data)
     fvar(var_tmp)
     var_tmp = d('Prop_String')
 	trace(var_tmp)
+    test()
+    test("")
+    test("test")
     test(var_tmp)
-//	trace(isnull(var_tmp), var_tmp ? 1 : 0)
-    
 end
 
 func Value()
