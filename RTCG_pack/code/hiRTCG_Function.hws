@@ -1,10 +1,49 @@
 func Init()
-//  fvar(Name_tmp)
-//  Name_tmp = d('Name')
-  trace(isnull(Name) ,Name ? 1 : 0)
-//  if(isnull(Name)) 
-//    Name_tmp='function_'+this.id
-//  else
-//    Name_tmp = d('Name')
-//  end
+  gvar(Name_tmp)
+//  trace(isdef('Name') ,d('Name') ? 1 : 0)
+  if(isdef('Name')) 
+    Name_tmp='function_'+this.id
+  else
+    Name_tmp = d('Name')
+  end
+//  trace(Name_tmp)
+//  trace(isnull('Name') ,d('Name') ? 1 : 0)
+end
+
+func decFunc(Data_Stream)
+  Rt = d('Return')
+  RS = d('ReturnString') 
+  if(not isset(blk_vars))
+    gvar(blk_vars)
+  else
+    trace("Переменная blk_vars уже существует")
+  end
+  if(not isset(blk_body))
+    gvar(blk_body)
+  else
+    trace("Переменная blk_body уже существует")
+  end
+  blk_vars = block.reggen()
+  blk_body = block.reggen()
+  blk.println('func ',code(Name_tmp),'(',Data_Stream,')')
+  blk_vars.inc()
+  blk_body.inc()
+  event('bodyFunc')
+  if(not isdef('Return') or linked('Return'))
+    blk_body.println('return(',code(d('Return')),')')
+//    switch('ReturnString')
+//      case(0): blk_body.println('return(',d('Return'),')')
+//      case(1): blk_body.println('return(code(',d('Return'),'))')
+//    end
+  trace(Rt)
+  trace(RS)
+  end
+  blk_body.dec()
+  blk_body.println('end')
+  blk_body.println('')
+  blk.copyhere(blk_varsblk)
+  blk.copyhere(blk_body)
+//  delete(blk_vars)
+//  delete(blk_body)
+//  free(blk_vars, blk_body)
 end

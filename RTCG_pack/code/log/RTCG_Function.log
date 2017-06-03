@@ -1,9 +1,86 @@
 UNIT
 	FUNC(init)
 		IF
-			==
+			CALL
+				PROC
+				STRING(Name)
+			BLOCK
+				ASSIGN
+					VAR
+					ADD
+						STRING(function_)
+						DOT
+							INT_OBJECT
+							STRING(id)
+			BLOCK
+				ASSIGN
+					VAR
+					CALL
+						PROC
+						STRING(Name)
+	FUNC(decfunc)
+		IF
+			NOT
+				INTEGER(1)
+			BLOCK
+			BLOCK
 				CALL
 					PROC
-					STRING(Name)
-				VAR
+					STRING(Переменная blk_vars уже существует)
+		IF
+			NOT
+				INTEGER(1)
 			BLOCK
+			BLOCK
+				CALL
+					PROC
+					STRING(Переменная blk_body уже существует)
+		ASSIGN
+			VAR
+			CALL
+				DOT
+					INT_OBJECT
+					STRING(reggen)
+		ASSIGN
+			VAR
+			CALL
+				DOT
+					INT_OBJECT
+					STRING(reggen)
+		CALL
+			DOT
+				VAR
+				STRING(println)
+			STRING(func )
+			CALL
+				PROC
+				VAR
+			STRING(()
+			VAR
+			STRING())
+		CALL
+			DOT
+				VAR
+				STRING(inc)
+		CALL
+			DOT
+				VAR
+				STRING(inc)
+		CALL
+			PROC
+			STRING(bodyFunc)
+		IF
+			OR
+				NOT
+					CALL
+						PROC
+						STRING(Return)
+				CALL
+					PROC
+					STRING(Return)
+			BLOCK
+				CALL
+					PROC
+					CALL
+						PROC
+						STRING(Return)

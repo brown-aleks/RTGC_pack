@@ -1,0 +1,16 @@
+func test(data)
+	trace(isnull(data), data ? 1 : 0)
+end
+
+func doWork(_data)
+    fvar(var_tmp)
+    var_tmp = d('Prop_String')
+	trace(var_tmp)
+    test(var_tmp)
+//	trace(isnull(var_tmp), var_tmp ? 1 : 0)
+    
+end
+
+func Value()
+end
+
