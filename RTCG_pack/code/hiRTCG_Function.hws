@@ -15,11 +15,13 @@ func decFunc(Data_Stream)
   RS = d('ReturnString') 
   if(not isset(blk_vars))
     gvar(blk_vars)
+    trace("ќбъ€вим переменную blk_vars",isset(blk_vars))
   else
     trace("ѕеременна€ blk_vars уже существует")
   end
   if(not isset(blk_body))
     gvar(blk_body)
+    trace("ќбъ€вим переменную blk_body",not isset(blk_body))
   else
     trace("ѕеременна€ blk_body уже существует")
   end
@@ -41,7 +43,7 @@ func decFunc(Data_Stream)
   blk_body.dec()
   blk_body.println('end')
   blk_body.println('')
-  blk.copyhere(blk_varsblk)
+  blk.copyhere(blk_vars)
   blk.copyhere(blk_body)
 //  delete(blk_vars)
 //  delete(blk_body)

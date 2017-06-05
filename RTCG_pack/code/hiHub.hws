@@ -1,54 +1,7 @@
-func init
-	this.setfield('loop', 0)
-	this.override = new array()
-end
-
-func doEvent(data, index)
-	dt = data
-	type = sys.code_type(data)
-	if(this.loop)
-		this.make_method(dt, type)
-		blk.println(this.codename,'(', sys.if_null(dt), ');')
-	else
-		this.loop++
-		for(i = 1; i <= this.numevents; i++)
-			evn = 'onEvent' + i
-			if(len(dt))
-				event(evn, dt)
-			else
-				event(evn)
-			end
-		end
-	end
-end
-
-func make_method(data, t)
-	type = sys.type_name(data, t)
-	trace(type)
-	if(not this.override.contain(type))
-		this.override.add(type)
-		sys.blocks_store()
-		ini = block.reggen().inc().inc()
-		if(pos(sys.get_frame_above(), 'UserClass', 0))
-			inits.add(ini)
-		else
-			this.parent.get_parent_sdk().class_events.add(ini)
-		end
-		for(i = 1; i <= this.numevents; i++)
-			evn = 'onEvent' + i
-			if(len(data))
-				event(evn, sub('data', t))
-			else
-				event(evn)
-			end
-		end
-		// makes an implementation of the method
-		ini.println('private void ',this.codename, '(', type, ' data) {')
-			if(not blk_lvars.empty())
-				ini.copyhere(blk_lvars)
-			end
-			ini.copyhere(blk)
-		.println('}')
-		sys.blocks_restore()
-	end
+func doEvent(data)
+  fvar(i)
+  for(i = 0; i < this.numevents; i++) 
+    trace(this.pt_event(i).name)
+	event(this.pt_event(i).name, data)
+  end
 end
