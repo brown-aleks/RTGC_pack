@@ -1,8 +1,16 @@
 //----------------------- SYSTEM ----------------------------------
 func create(entry)
+	gvar(blk)
+    blk = block.reg('result')
+  	gvar(blk_func,blk_cur)
+	blk_func = new array()
 end
 
 func destroy(entry)
+	for(i = 0; i < blk_func.size(); i++)
+		blk.copyhere(blk_func[i])
+		block.delete(blk_func[i])
+	end
 end
 
 func to_type(value, type)

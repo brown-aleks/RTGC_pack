@@ -1,51 +1,52 @@
 func Init()
-  gvar(Name_tmp)
-//  trace(isdef('Name') ,d('Name') ? 1 : 0)
-  if(isdef('Name')) 
-    Name_tmp='function_'+this.id
+  if(this.props("Name").isdef) 
+    this.setfield("Name_tmp", 'function_'+this.id)
   else
-    Name_tmp = d('Name')
+    this.setfield("Name_tmp", this.props("Name").value)   //
   end
-//  trace(Name_tmp)
-//  trace(isnull('Name') ,d('Name') ? 1 : 0)
+  this.setfield("blk_i", blk_func.size())
+  blk_func.add(block.reg(this.Name_tmp))
+  this.setfield("Data", '')
 end
 
 func decFunc(Data_Stream)
-  Rt = d('Return')
-  RS = d('ReturnString') 
-  if(not isset(blk_vars))
-    gvar(blk_vars)
-    trace("ќбъ€вим переменную blk_vars",isset(blk_vars))
-  else
-    trace("ѕеременна€ blk_vars уже существует")
-  end
-  if(not isset(blk_body))
-    gvar(blk_body)
-    trace("ќбъ€вим переменную blk_body",not isset(blk_body))
-  else
-    trace("ѕеременна€ blk_body уже существует")
-  end
-  blk_vars = block.reggen()
-  blk_body = block.reggen()
-  blk.println('func ',code(Name_tmp),'(',Data_Stream,')')
-  blk_vars.inc()
-  blk_body.inc()
+  trace(this.Name_tmp)
+//  trace(this.blk_i)
+//  trace(isnull(d('ListOfOptions')),' ', d('ListOfOptions') ? 1 : 0)
+  blk_func[this.blk_i].println('func ', code(this.Name_tmp), '(', d('ListOfOptions'),')')  //  Data_Stream
+  blk_func[this.blk_i].inc()
+//  trace(d('Return'))
+  blk_cur = this.blk_i
+//  blk_func[blk_cur].println('blk_cur = ', blk_cur)
   event('bodyFunc')
-  if(not isdef('Return') or linked('Return'))
-    blk_body.println('return(',code(d('Return')),')')
-//    switch('ReturnString')
-//      case(0): blk_body.println('return(',d('Return'),')')
-//      case(1): blk_body.println('return(code(',d('Return'),'))')
-//    end
-  trace(Rt)
-  trace(RS)
+  if(not isdef("Return") or linked("Return"))
+    blk_func[this.blk_i].println('Return(', d("Return"), ')')
   end
-  blk_body.dec()
-  blk_body.println('end')
-  blk_body.println('')
-  blk.copyhere(blk_vars)
-  blk.copyhere(blk_body)
-//  delete(blk_vars)
-//  delete(blk_body)
-//  free(blk_vars, blk_body)
+//  if(this.props("Return").isdef == 0)
+//    blk_func[this.blk_i].println('Return(', this.props("Return").value, ')')
+//  elseif(linked('Return'))
+//    blk_func[this.blk_i].println('Return(', d("Return"), ')')
+//  else
+//  end
+  blk_func[this.blk_i].dec()
+  blk_func[this.blk_i].println('end')
+  blk_func[this.blk_i].println('')
+end
+
+func callFunc (Data_Stream)
+  this.setfield("Data", Data_Sream)
+//  this.setfield("Func_rt", code(this.Name_tmp) && '(' && code(this.Data) && ')')
+  blk_func[blk_cur].println(code(this.Name_tmp), '(', code(this.Data),')')
+end
+
+func ListOfVars(Data_Sream)
+  this.setfield("Data", Data_Sream)
+//  this.setfield("Func_rt", code(this.Name_tmp) && '(' && code(this.Data) && ')')
+end
+
+func Funcr()
+//  trace(code(this.Name_tmp) + '(' + this.Data + ')')
+//  return(this.Func_rt)
+//  return("Ret")
+  return(code(this.Name_tmp) + '(' + code(this.Data) + ')')
 end

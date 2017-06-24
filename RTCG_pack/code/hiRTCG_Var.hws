@@ -1,0 +1,77 @@
+func Init()
+  if(this.props("Name").isdef) 
+    this.setfield("Name_tmp", 'var_'+this.id)
+  else
+    this.setfield("Name_tmp", this.props("Name").value)   //
+  end
+end
+
+func declare()
+  fvar(BLK_OLD,t)
+  t=AcsVar+'('+code(N)+')'
+  switch(DecVar)
+    case(1): 
+      if(block.intext(t) = 0)
+        BLK_OLD = block.select(BLK_VARS)
+        if(block.intext(t) = 0)
+          println(t)
+          block.select(BLK_OLD)
+        else
+//          trace('FTCG_Xvar: Переменная '+t+' объявленна в начале функции.')
+          block.select(BLK_OLD)
+        end
+      else
+//        trace('FTCG_Xvar: Переменная '+t+' объявленна в основном теле функции.')
+      end
+    case(2):
+      BLK_OLD = block.select(BLK_VARS)
+      if(block.intext(t) = 0)
+        block.select(BLK_OLD)
+        if(block.intext(t) = 0)
+          println(t)
+        else
+//          trace('FTCG_Xvar: Переменная '+t+' объявленна в основном теле функции.')
+        end
+      else
+//        trace('FTCG_Xvar: Переменная '+t+' объявленна в начале функции.')
+        block.select(BLK_OLD)
+      end
+  end
+end
+
+func give(d)
+//  trace('FTCG_Xvar: Переменная d = '+d)
+  if(typeof(d)=2)
+    println(code(N)+' = '+d)
+  else
+    println(code(N)+' = '+code(d))
+  end
+end
+
+func doValue(_data)
+  fvar(p)
+//  trace('Xvar: Data =  '+Data+'    _data = '+_data+'     CodeOut = '+CodeOut)
+  if(Data ='')
+    p=_data
+  else
+    p=Data
+  end
+  declare()
+  give(p)
+  switch(CodeOut)
+    case(0):
+    event(onValue, code(N))
+    case(1):
+    event(onValue, 'code('+code(N)+')')
+  end
+end
+
+func Value()
+  declare()
+  switch(CodeOut)
+    case(0):
+    return(code(N))
+    case(1):
+    return('code('+code(N)+')')
+  end
+end

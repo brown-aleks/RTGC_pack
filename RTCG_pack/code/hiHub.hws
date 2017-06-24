@@ -1,7 +1,7 @@
 func doEvent(data)
   fvar(i)
   for(i = 0; i < this.numevents; i++) 
-    trace(this.pt_event(i).name)
+//    trace(this.pt_event(i).name)
 	event(this.pt_event(i).name, data)
   end
 end

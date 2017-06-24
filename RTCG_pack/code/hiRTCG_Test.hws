@@ -1,16 +1,12 @@
-func test(data)
-	trace(isnull(data), data ? 1 : 0)
-end
-
 func doWork(_data)
-    fvar(var_tmp)
-    trace(this.props("Prop_List").isdef)
-//    var_tmp = Prop_List
-	trace(var_tmp)
-    test()
-    test("")
-    test("test")
-    test(var_tmp)
+  fvar(RS)
+  RS = this.props('ReturnString')
+  if(RS == 0)
+    trace("ReturnString = False")
+  else
+    trace("ReturnString = True")
+  end 
+  trace(RS)
 end
 
 func Value()

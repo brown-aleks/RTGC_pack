@@ -1,0 +1,10 @@
+func doData(Data_Stream)
+  fvar(EvData)
+  if(linked("Data") == 1 or isndef("Data") == 0)
+    EvData = Data_Stream && d("Data")
+    event("onEventData", EvData)
+  else
+    event('onEventData')
+  end
+  trace('EvData = ',EvData)
+end
