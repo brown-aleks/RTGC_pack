@@ -10,10 +10,12 @@ func Init()
 end
 
 func decFunc(Data_Stream)
+  fvar(LOO)
+  LOO = d('ListOfOptions')
   trace(this.Name_tmp)
 //  trace(this.blk_i)
 //  trace(isnull(d('ListOfOptions')),' ', d('ListOfOptions') ? 1 : 0)
-  blk_func[this.blk_i].println('func ', code(this.Name_tmp), '(', d('ListOfOptions'),')')  //  Data_Stream
+  blk_func[this.blk_i].println('func ', code(this.Name_tmp), '(', LOO,')')  //  Data_Stream
   blk_func[this.blk_i].inc()
 //  trace(d('Return'))
   blk_cur = this.blk_i

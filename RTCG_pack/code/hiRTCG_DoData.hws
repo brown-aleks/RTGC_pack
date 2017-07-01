@@ -1,10 +1,16 @@
 func doData(Data_Stream)
-  fvar(EvData)
-  if(linked("Data") == 1 or isndef("Data") == 0)
+  fvar(EvData, dt)
+  dt = d("Data")
+//  trace('dt = ', dt, '   Data_Stream = ', Data_Stream)
+  if(not isnull(dt) and not isnull(Data_Stream))
     EvData = Data_Stream && d("Data")
     event("onEventData", EvData)
+  elseif(isnull(dt) and not isnull(Data_Stream))
+    event('onEventData', Data_Stream)
+  elseif(not isnull(dt) and isnull(Data_Stream))
+    event('onEventData', dt)
   else
     event('onEventData')
   end
-  trace('EvData = ',EvData)
+//  trace('EvData = ',EvData)
 end
