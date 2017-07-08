@@ -1,8 +1,8 @@
 func doEvent(Data_Stream)
   fvar(i)
   trace('Data_Stream = ', Data_Stream,'    isnull(Data_Stream) = ', isnull(Data_Stream))
-  for(i = 0; i < this.numevents; i++) 
-    trace(this.pt_event(i).name)
-	event(this.pt_event(i).name, Data_Stream)
-  end
+   for(i = 0; i < this.numevents; i++) 
+     trace(this.pt_event(i).name)
+     event(this.pt_event(i).name, Data_Stream)
+   end
 end
